@@ -1,0 +1,21 @@
+{
+  "name": "shri-adaptive-design",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "npm run build && gulp serve",
+    "build": "gulp build"
+  },
+  "devDependencies": {
+    "autoprefixer": "8.1.0",
+    "browser-sync": "2.23.6",
+    "del": "3.0.0",
+    "gulp": "3.9.1",
+    "gulp-cli": "2.0.1",
+    "gulp-postcss": "7.0.1",
+    "gulp-rename": "^1.2.2",
+    "postcss-cli": "5.0.0",
+    "postcss-nested": "3.0.0",
+    "stylelint-config-recommended": "2.1.0"
+  },
+  "dependencies": {}
+}
