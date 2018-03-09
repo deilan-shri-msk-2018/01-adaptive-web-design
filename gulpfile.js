@@ -19,6 +19,7 @@ gulp.task('serve', () => {
 
   gulp.watch(`${src}/styles/**/*.pcss`, ['styles']);
   gulp.watch(`${src}/*.html`, ['html', 'reload']);
+  gulp.watch(`${src}/scripts/**/*.js`, ['scripts', 'reload']);
 });
 
 gulp.task('reload', (done) => {
@@ -28,7 +29,7 @@ gulp.task('reload', (done) => {
 
 gulp.task('default', ['clean', 'build']);
 
-gulp.task('build', ['html', 'styles']);
+gulp.task('build', ['html', 'styles', 'scripts']);
 
 gulp.task('clean', () => {
   return del([
@@ -37,14 +38,14 @@ gulp.task('clean', () => {
 });
 
 gulp.task('html', () => {
-  return gulp.src('src/*.html', {
-      base: 'src'
+  return gulp.src(`${src}/*.html`, {
+      base: src
     })
     .pipe(gulp.dest(dest));
 });
 
 gulp.task('styles', () => {
-  return gulp.src('src/styles/*.pcss')
+  return gulp.src(`${src}/styles/*.pcss`)
     .pipe(postcss())
     .pipe(rename({
       extname: '.css'
@@ -53,4 +54,9 @@ gulp.task('styles', () => {
     .pipe(reload({
       stream: true
     }));
+});
+
+gulp.task('scripts', () => {
+  return gulp.src(`${src}/scripts/**/*.js`)
+    .pipe(gulp.dest(`${dest}`));
 });
