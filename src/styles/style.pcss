@@ -1,20 +1,150 @@
 .Page {
-
   &-Container {
     margin-left: auto;
     margin-right: auto;
     width: 704px;
   }
-}
-
-.Logo {
-  &-Company {
-    font-weight: bold;
-  }
+  font-size: 14px;
+  line-height: 20px;
 }
 
 .Container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  
+  grid-template-columns: repeat(6, 1fr);
+  grid-column-gap: 16px;
+  grid-row-gap: 30px;
+}
+
+.Item {
+  position: relative;
+  // overflow: hidden;
+
+  &-Image {
+    // position: absolute;
+    // z-index: 0;
+  }
+
+  &-Header {
+    z-index: 1;
+    position: relative;
+  }
+
+  &-Image {
+    z-index: 0;
+  }
+
+  &-Title {
+    background-color: white;
+    margin: 0;
+    padding-bottom: 10px;
+    // position: relative;
+    // z-index: 1;
+  }
+
+  &-Description {
+    margin: 0;
+    // position: absolute;
+  }
+
+  &_Size_Small {
+    grid-column: span 2;
+    height: 234px;
+
+    .Item-Title {
+      font-size: 17px;
+    }
+
+    .Item-Header {
+      height: 52px;
+    }
+
+    .Item-Image {
+      // top: 52px;
+    }
+  }
+
+  &_Size_Medium {
+    grid-column: span 3;
+    height: 305px;
+
+    .Item-Header {
+      height: 55px;
+    }
+
+    .Item-Title {
+      font-size: 19px;
+    }
+
+    .Item-Image {
+      // top: 55px;
+    }
+
+    .Item-Description {
+      width: 296px;
+      height: 62px;
+      overflow: hidden;
+    }
+  }
+
+  &_Size_Large {
+    grid-column: 1 / -1;
+    height: 243px;
+
+    .Item-Title {
+      font-size: 19px;
+    }
+  }
+
+  &-Like,
+  &-Options {
+  }
+
+  &-Like {
+  }
+}
+
+.Action {
+  border: none;
+  // background: none;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 17px;
+  height: 17px;
+  cursor: pointer;
+
+  &_Like {
+    background-image: url(images/heart.png);
+  }
+
+  &_Options {
+    background-image: url(images/actions.png);
+    background-position: 
+  }
+}
+
+.Item-Content  {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Item-Actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Item_Size_Medium .Item-Actions {
+  flex-direction: column;
+  margin-right: 5px;
+}
+
+.Item_Size_Small .Item-Actions {
+  flex-direction: column;
+  justify-content: space-between;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 182px;
+  margin-right: 5px;
+  margin-bottom: 16px;
 }

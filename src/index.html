@@ -11,12 +11,12 @@
 
 <body class="Page">
   <div class="Page-Container">
-    <header class="PageHeader">
+    <!-- <header class="PageHeader">
       <div class="Logo">
         <span class="Logo-Company">Яндекс</span>
         <span class="Logo-Service">Дзен</span>
       </div>
-    </header>
+    </header> -->
     <main class="PageBody">
       <div class="Container" id="container">
       </div>
@@ -34,15 +34,25 @@
   </script> -->
   <template id="template">
     <article class="Item">
-      <header class="Item-Title"></header>
+      <header class="Item-Header">
+        <h3 class="Item-Title"></h3>
+      </header>
       <picture class="Item-Image">
         <img alt="">
       </picture>
-      <section class="Item-Description"></section>
-      <cite class="Item-Author"></cite>
+      <div class="Item-Content">
+        <p class="Item-Description"></p>
+        <div class="Item-Actions">
+          <button class="Action Action_Options"></button>
+          <button class="Action Action_Like"></button>
+        </div>
+      </div>
+      <cite class="Item-ChannelName"></cite>
     </article>
   </template>
   <script src="data.js"></script>
+  <script src="utils.js"></script>
+  <script src="render.js"></script>
   <script src="index.js"></script>
 </body>
 
