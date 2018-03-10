@@ -29,7 +29,7 @@ gulp.task('reload', (done) => {
 
 gulp.task('default', ['clean', 'build']);
 
-gulp.task('build', ['html', 'styles', 'scripts']);
+gulp.task('build', ['html', 'styles', 'scripts', 'images']);
 
 gulp.task('clean', () => {
   return del([
@@ -59,4 +59,9 @@ gulp.task('styles', () => {
 gulp.task('scripts', () => {
   return gulp.src(`${src}/scripts/**/*.js`)
     .pipe(gulp.dest(`${dest}`));
+});
+
+gulp.task('images', () => {
+  return gulp.src(`${src}/images/*.png`)
+    .pipe(gulp.dest(`${dest}/images`));
 });
