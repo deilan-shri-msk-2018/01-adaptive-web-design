@@ -3,16 +3,32 @@
   &-Container {
     margin-left: auto;
     margin-right: auto;
-    min-width: 320px;
-    width: 68.75%;
+
+    width: 296px;
+    @media screen and (min-width: 768px) {
+      width: 464px;
+    }
+    @media screen and (min-width: 1024px) {
+      width: 704px;
+    }
+    @media screen and (min-width: 1440px) {
+      width: 1136px;
+    }
+    @media screen and (min-width: 1920px) {
+      width: 1424px;
+    }
   }
   font-size: 14px;
   line-height: 20px;
 }
 
+.PageBody {
+  width: 100%;
+}
+
 .Container {
   display: grid;
-  grid-template-columns: repeat(12, minmax(56px, 1fr));
+  grid-template-columns: repeat(auto-fit, 8px);
   grid-column-gap: 16px;
   grid-row-gap: 30px;
   grid-auto-flow: dense;
@@ -50,10 +66,19 @@
   }
 
   &_Size_Small {
-    grid-column: span 4;
-    /* @media screen and (max-width: 721px) {
-      grid-column: 1 / -1;
-    } */
+    grid-column: span 13;
+    @media screen and (min-width: 768px) {
+      grid-column: span 10;
+    }
+    @media screen and (min-width: 1024px) {
+      grid-column: span 10;
+    }
+    @media screen and (min-width: 1440px) {
+      grid-column: span 12;
+    }
+    @media screen and (min-width: 1920px) {
+      grid-column: span 10;
+    }
     min-height: 234px;
 
     .Item-Title {
@@ -70,10 +95,19 @@
   }
 
   &_Size_Medium {
-    grid-column: span 6;
-    /* @media screen and (max-width: 907px) {
-      grid-column: 1 / -1;
-    } */
+    grid-column: span 13;
+    @media screen and (min-width: 768px) {
+      grid-column: span 20;
+    }
+    @media screen and (min-width: 1024px) {
+      grid-column: span 15;
+    }
+    @media screen and (min-width: 1440px) {
+      grid-column: span 16;
+    }
+    @media screen and (min-width: 1920px) {
+      grid-column: span 15;
+    }
     min-height: 305px;
 
     .Item-Header {
@@ -89,14 +123,26 @@
     }
 
     .Item-Description {
-      width: 296px;
+      // width: 296px;
       height: 62px;
       overflow: hidden;
     }
   }
 
   &_Size_Large {
-    grid-column: span 12;
+    grid-column: span 13;
+    @media screen and (min-width: 768px) {
+      grid-column: span 20;
+    }
+    @media screen and (min-width: 1024px) {
+      grid-column: span 30;
+    }
+    @media screen and (min-width: 1440px) {
+      grid-column: span 24;
+    }
+    @media screen and (min-width: 1920px) {
+      grid-column: span 20;
+    }
     min-height: 243px;
 
     .Item-Title {
