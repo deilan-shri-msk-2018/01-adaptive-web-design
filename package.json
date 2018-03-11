@@ -11,9 +11,11 @@
     "del": "3.0.0",
     "gulp": "3.9.1",
     "gulp-cli": "2.0.1",
+    "gulp-plumber": "^1.2.0",
     "gulp-postcss": "7.0.1",
     "gulp-rename": "^1.2.2",
     "postcss-cli": "5.0.0",
+    "postcss-inline-comment": "^3.0.0",
     "postcss-nested": "3.0.0",
     "stylelint-config-recommended": "2.1.0"
   },

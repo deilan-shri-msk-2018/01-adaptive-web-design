@@ -1,8 +1,10 @@
 .Page {
+  margin: 0;
   &-Container {
     margin-left: auto;
     margin-right: auto;
-    width: 704px;
+    min-width: 320px;
+    width: 68.75%;
   }
   font-size: 14px;
   line-height: 20px;
@@ -10,9 +12,10 @@
 
 .Container {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(12, minmax(56px, 1fr));
   grid-column-gap: 16px;
   grid-row-gap: 30px;
+  grid-auto-flow: dense;
 }
 
 .Item {
@@ -36,7 +39,7 @@
   &-Title {
     background-color: white;
     margin: 0;
-    padding-bottom: 10px;
+    // padding-bottom: 10px;
     // position: relative;
     // z-index: 1;
   }
@@ -47,8 +50,11 @@
   }
 
   &_Size_Small {
-    grid-column: span 2;
-    height: 234px;
+    grid-column: span 4;
+    /* @media screen and (max-width: 721px) {
+      grid-column: 1 / -1;
+    } */
+    min-height: 234px;
 
     .Item-Title {
       font-size: 17px;
@@ -64,8 +70,11 @@
   }
 
   &_Size_Medium {
-    grid-column: span 3;
-    height: 305px;
+    grid-column: span 6;
+    /* @media screen and (max-width: 907px) {
+      grid-column: 1 / -1;
+    } */
+    min-height: 305px;
 
     .Item-Header {
       height: 55px;
@@ -87,8 +96,8 @@
   }
 
   &_Size_Large {
-    grid-column: 1 / -1;
-    height: 243px;
+    grid-column: span 12;
+    min-height: 243px;
 
     .Item-Title {
       font-size: 19px;

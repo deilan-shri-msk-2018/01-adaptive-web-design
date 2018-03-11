@@ -3,6 +3,7 @@ const del = require('del');
 const rename = require('gulp-rename');
 const postcss = require('gulp-postcss');
 const path = require('path');
+const plumber = require('gulp-plumber');
 const browserSync = require('browser-sync').create();
 const reload = browserSync.reload;
 
@@ -46,6 +47,7 @@ gulp.task('html', () => {
 
 gulp.task('styles', () => {
   return gulp.src(`${src}/styles/*.pcss`)
+    .pipe(plumber())
     .pipe(postcss())
     .pipe(rename({
       extname: '.css'

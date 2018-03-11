@@ -23,15 +23,16 @@
 
   window.renderItem = function (item, node) {
     renderCommon(item, node);
-    renderTitle(item, node);
-    renderImage(item, node);
-    renderDescription(item, node);
-    renderChannelName(item, node);
+    // renderTitle(item, node);
+    // renderImage(item, node);
+    // renderDescription(item, node);
+    // renderChannelName(item, node);
   }
 
   function renderCommon(item, node) {
     var className = ITEM_CLASS_NAME + '_' + SIZES_CLASS_MAP[item.size];
     node.classList.add(className);
+    node.style.backgroundColor = item.titleColor;
   }
 
   function renderTitle(item, node) {
@@ -45,8 +46,8 @@
     if (item.image) {
       var imageUrl = item.image.split('.')[0] + '@2x' + '.png';
       imageEl.src = imageUrl;
-      imageEl.width = IMAGE_SIZES_MAP[item.size].width;
-      imageEl.height = IMAGE_SIZES_MAP[item.size].height;
+      // imageEl.width = IMAGE_SIZES_MAP[item.size].width;
+      // imageEl.height = IMAGE_SIZES_MAP[item.size].height;
     } else {
       removeNode(imageEl);
     }
