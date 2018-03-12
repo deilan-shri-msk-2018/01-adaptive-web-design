@@ -1,21 +1,24 @@
 .Page {
   margin: 0;
+
   &-Container {
     margin-left: auto;
     margin-right: auto;
-
-    width: 296px;
+    width: 296px; /*13*/
     @media screen and (min-width: 768px) {
-      width: 464px;
+      width: 464px; /*20*/
     }
+
     @media screen and (min-width: 1024px) {
-      width: 704px;
+      width: 704px; /*30*/
     }
+
     @media screen and (min-width: 1440px) {
-      width: 1136px;
+      width: 1136px; /*48*/
     }
+
     @media screen and (min-width: 1920px) {
-      width: 1424px;
+      width: 1424px; /*60*/
     }
   }
   font-size: 14px;
@@ -36,11 +39,15 @@
 
 .Item {
   position: relative;
-  // overflow: hidden;
+  overflow: hidden;
 
   &-Image {
-    // position: absolute;
-    // z-index: 0;
+    z-index: 0;
+
+    img {
+      display: block;
+      width: 100%;
+    }
   }
 
   &-Header {
@@ -48,82 +55,73 @@
     position: relative;
   }
 
-  &-Image {
-    z-index: 0;
-  }
-
   &-Title {
     background-color: white;
     margin: 0;
-    // padding-bottom: 10px;
-    // position: relative;
-    // z-index: 1;
   }
 
   &-Description {
     margin: 0;
-    // position: absolute;
   }
 
   &_Size_Small {
     grid-column: span 13;
+
     @media screen and (min-width: 768px) {
       grid-column: span 10;
     }
+
     @media screen and (min-width: 1024px) {
       grid-column: span 10;
     }
+
     @media screen and (min-width: 1440px) {
       grid-column: span 12;
     }
+
     @media screen and (min-width: 1920px) {
       grid-column: span 10;
     }
-    min-height: 234px;
+    height: 234px;
 
     .Item-Title {
       font-size: 17px;
     }
 
     .Item-Header {
-      height: 52px;
-    }
-
-    .Item-Image {
-      // top: 52px;
+      height: 44px; /*52 - 8*/
     }
   }
 
   &_Size_Medium {
     grid-column: span 13;
+
     @media screen and (min-width: 768px) {
       grid-column: span 20;
     }
+
     @media screen and (min-width: 1024px) {
       grid-column: span 15;
     }
+
     @media screen and (min-width: 1440px) {
       grid-column: span 16;
     }
+
     @media screen and (min-width: 1920px) {
       grid-column: span 15;
     }
-    min-height: 305px;
+    height: 305px;
 
     .Item-Header {
-      height: 55px;
+      height: 47px; /*55 - 8*/
     }
 
     .Item-Title {
       font-size: 19px;
     }
 
-    .Item-Image {
-      // top: 55px;
-    }
-
     .Item-Description {
-      // width: 296px;
       height: 62px;
       overflow: hidden;
     }
@@ -131,19 +129,23 @@
 
   &_Size_Large {
     grid-column: span 13;
+
     @media screen and (min-width: 768px) {
       grid-column: span 20;
     }
+
     @media screen and (min-width: 1024px) {
       grid-column: span 30;
     }
+
     @media screen and (min-width: 1440px) {
       grid-column: span 24;
     }
+
     @media screen and (min-width: 1920px) {
       grid-column: span 20;
     }
-    min-height: 243px;
+    height: 243px;
 
     .Item-Title {
       font-size: 19px;
@@ -160,7 +162,6 @@
 
 .Action {
   border: none;
-  // background: none;
   background-color: transparent;
   background-repeat: no-repeat;
   background-position: center;
@@ -169,16 +170,16 @@
   cursor: pointer;
 
   &_Like {
-    background-image: url(images/heart.png);
+    background-image: url("images/heart.png");
   }
 
   &_Options {
-    background-image: url(images/actions.png);
-    background-position: 
+    background-image: url("images/actions.png");
+    background-position: ;
   }
 }
 
-.Item-Content  {
+.Item-Content {
   display: flex;
   justify-content: space-between;
 }
@@ -188,18 +189,164 @@
   justify-content: space-between;
 }
 
-.Item_Size_Medium .Item-Actions {
-  flex-direction: column;
-  margin-right: 5px;
+/* Grid */
+.Item {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 8px);
+  grid-column-gap: 16px;
+  grid-row-gap: 8px;
 }
 
-.Item_Size_Small .Item-Actions {
-  flex-direction: column;
-  justify-content: space-between;
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  height: 182px;
-  margin-right: 5px;
-  margin-bottom: 16px;
+.Item_Size_Small {
+  .Item-Header {
+    grid-column: 1 / -1;
+  }
+
+  .Item-Image {
+    grid-column: 1 / -1;
+  }
+
+  .Item-Content {
+    grid-column: 1 / -1;
+  }
+
+  .Item-Actions {
+    display: none;
+  }
+
+  .Item-ChannelName {
+    position: absolute;
+    bottom: 0;
+    background-color: white;
+    width: 100%;
+    height: 30px;
+  }
+}
+
+.Item_Size_Medium {
+  .Item-Header {
+    grid-column: 1 / -1;
+  }
+
+  .Item-Image {
+    grid-column: 1 / -1;
+  }
+
+  .Item-Content {
+    grid-column: 1 / -3;
+  }
+
+  .Item-Actions {
+    grid-column: -3 / -1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.Item_Size_Large {
+
+  @media screen and (min-width: 320px) {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 8px);
+    grid-column-gap: 16px;
+    grid-row-gap: 8px;
+
+    .Item-Header {
+      grid-column: 1 / -1;
+    }
+
+    .Item-Image {
+      grid-column: 1 / -1;
+    }
+
+    .Item-Content {
+      grid-column: 1 / -3;
+    }
+
+    .Item-Actions {
+      grid-column: -3 / -1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+
+    .Item-Header {
+      order: 1;
+    }
+
+    .Item-Image {
+      order: 0;
+      margin-right: 16px;
+    }
+
+    .Item-Content {
+      order: 2;
+      height: 0;
+    }
+
+    .Item-Actions {
+      order: 3;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      background: white;
+      height: 20px;
+    }
+
+    .Item-Image {
+      width: 268px;
+    }
+
+    .Item-Header,
+    .Item-Content,
+    .Item-Actions {
+      width: 184px;
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    .Item-Image {
+      width: 464px;
+    }
+
+    .Item-Header,
+    .Item-Content,
+    .Item-Actions {
+      width: 224px;
+    }
+  }
+
+  @media screen and (min-width: 1440px) {
+    .Item-Image {
+      width: 368px;
+    }
+
+    .Item-Header,
+    .Item-Content,
+    .Item-Actions {
+      width: 184px;
+    }
+  }
+
+  @media screen and (min-width: 1920px) {
+    .Item-Image {
+      width: 274px;
+    }
+
+    .Item-Header,
+    .Item-Content,
+    .Item-Actions {
+      width: 184px;
+    }
+  }
 }
